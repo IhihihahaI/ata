@@ -1,0 +1,5 @@
+ata/*.pyc
+ata/__pycache__
+ata/myenv
+ata/db.sqlite3
+ata/.DS_Store

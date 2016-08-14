@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load staticfiles %}
+<style type="text/css">
+.slide1{
+  background-image: url("http://www.sosyalmedya.boun.edu.tr/wp-content/uploads/2014/01/slider1_2.jpg");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.slide2{
+  background-image: url("https://pbs.twimg.com/profile_images/701848766404550656/0uz8JWka.jpg");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.slide3{
+  background-image: url("{% static 'main/images/tarlamvar.jpeg' %}");
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.carousel-caption h1{
+  font-size: 5.4em;
+  font-family: 'Satisfy', cursive;
+  padding-bottom: .4em;
+}
+.carousel-caption p{
+  font-size: 2em;
+}
+</style>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Ata Cengiz Ltd{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel = "stylesheet" type = "text/css" href = "{% static "main/css/bootstrap.css" %}" />
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{% static "main/js/bootstrap.js" %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "main:index" %}">Ata Cengiz Ltd</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li class="{% block albums_active %}{% endblock %}"><a href="{% url 'products:index' %}"><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>&nbsp; Products</a></li>
+            </ul>
+<!            <form class="navbar-form navbar-left" role="search" method="get" action="{% url 'products:index' %}">
+<!                <div class="form-group">
+<!                    <input type="text" class="form-control" name="q" value="{{ request.GET.q }}">
+<!                </div>
+<!                <button type="submit" class="btn btn-default">Search</button>
+<!            </form>
+        </div>
+
+    </div>
+</nav>
+
+<div id = "Carousel" class="carousel slide" data-ride="carousel">
+
+<ol class="carousel-indicators">
+<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+<li data-target="#Carousel" data-slide-to="1"></li>
+<li data-target="#Carousel" data-slide-to="2"></li>
+</ol>
+
+<div class="carousel-inner">
+  <div class="item active">
+  <div class="slide1"></div>
+  <div class="carousel-caption">
+    <h1>Amazing Products</h1>
+      <p>Thousands of Them are ready to take</p>
+      <p><a href="{% url 'products:index' %}" class="btn btn-primary btn-sm">Get them nowe</a></p>
+  </div>
+  </div>
+
+  <div class="item">
+  <div class="slide2"></div>
+  <div class="carousel-caption">
+    <h1>Ata Basgan</h1>
+  </div>
+  </div>
+
+  <div class="item">
+  <div class="slide3"></div>
+  <div class="carousel-caption">
+    <h1>Tarlam</h1>
+      <p>var</p>
+  </div>
+  </div>
+
+</div>
+
+<a class="left carousel-control" href="#Carousel" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#Carousel" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+</div>
+
+
+</body>
+
+
+</html>
